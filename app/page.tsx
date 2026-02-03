@@ -69,7 +69,10 @@ export default function Home() {
 
     try {
       const res = await axios.post<ApiResponse>(`${backendUrl}/process-image`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { 
+          "Content-Type": "multipart/form-data",
+          "ngrok-skip-browser-warning": "true",
+        },
       });
       
       setData(res.data);
